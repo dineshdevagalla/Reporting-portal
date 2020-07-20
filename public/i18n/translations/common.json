@@ -1,0 +1,13 @@
+{
+   "observationTableHeader": [
+      {
+         "title": "Title",
+         "reportedOn": "Reported On",
+         "assignedTo": "assigned to",
+         "severity": "Severity",
+         "status": "Status",
+         "dueDate": "due-date",
+         "reportedBy": "reported By"
+      }
+   ]
+}

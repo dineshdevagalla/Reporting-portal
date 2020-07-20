@@ -1,0 +1,84 @@
+{
+   "district_wise_counts_on_the_day": [
+      {
+         "date": "31-03-2020",
+         "total_confirmed_cases": 25,
+         "total_deaths": 0,
+         "total_recovery_cases": 0,
+         "active_cases_on_the_day": 25,
+         "district_name": "guntur"
+      },
+      {
+         "date": "31-03-2020",
+         "total_confirmed_cases": 35,
+         "total_deaths": 0,
+         "total_recovery_cases": 0,
+         "active_cases_on_the_day": 35,
+         "district_name": "karnool"
+      },
+      {
+         "date": "31-03-2020",
+         "total_confirmed_cases": 10,
+         "total_deaths": 0,
+         "total_recovery_cases": 0,
+         "active_cases_on_the_day": 10,
+         "district_name": "krishna"
+      },
+      {
+         "date": "31-03-2020",
+         "total_confirmed_cases": 16,
+         "total_deaths": 0,
+         "total_recovery_cases": 0,
+         "active_cases_on_the_day": 16,
+         "district_name": "nellore"
+      },
+      {
+         "date": "31-03-2020",
+         "total_confirmed_cases": 10,
+         "total_deaths": 0,
+         "total_recovery_cases": 0,
+         "active_cases_on_the_day": 10,
+         "district_name": "vishakhapatnam"
+      },
+      {
+         "date": "31-03-2020",
+         "total_confirmed_cases": 9,
+         "total_deaths": 0,
+         "total_recovery_cases": 0,
+         "active_cases_on_the_day": 9,
+         "district_name": "east godavri"
+      },
+      {
+         "date": "31-03-2020",
+         "total_confirmed_cases": 8,
+         "total_deaths": 0,
+         "total_recovery_cases": 0,
+         "active_cases_on_the_day": 8,
+         "district_name": "west godavari"
+      },
+      {
+         "date": "31-03-2020",
+         "total_confirmed_cases": 10,
+         "total_deaths": 0,
+         "total_recovery_cases": 0,
+         "active_cases_on_the_day": 10,
+         "district_name": "kadapa"
+      },
+      {
+         "date": "31-03-2020",
+         "total_confirmed_cases": 2,
+         "total_deaths": 0,
+         "total_recovery_cases": 0,
+         "active_cases_on_the_day": 2,
+         "district_name": "ongole"
+      },
+      {
+         "date": "31-03-2020",
+         "total_confirmed_cases": 0,
+         "total_deaths": 0,
+         "total_recovery_cases": 0,
+         "active_cases_on_the_day": 0,
+         "district_name": "vizayanagaram"
+      }
+   ]
+}
