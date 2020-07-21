@@ -16,13 +16,14 @@ border-radius:5px;
 
 export const StatusDiv = styled.span`
    ${tw` flex justify-center items-center `}
-   border: 1px solid ${Colors.darkBlueGrey};
-   border-radius:5px;
-   padding:2px;
-   font-size: 10px;
-  font-weight: 600;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 2;
-  letter-spacing: 0.32px;
+   border: 1px solid #171f46;
+   border-radius: 3px;
+   padding: 1px;
+   font-size: 8px;
+   font-weight: 600;
+   font-stretch: normal;
+   font-style: normal;
+   line-height: 2;
+   letter-spacing: 0.32px;
+   color: #171f46;
 `
