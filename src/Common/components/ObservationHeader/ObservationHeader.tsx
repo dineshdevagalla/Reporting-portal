@@ -12,7 +12,7 @@ import {
    userObservationTableHeaderConstants,
    adminObservastionTableHeaderConstants,
    roleType
-} from '../../../constants/ObservationConstans'
+} from '../../constants/ObservationConstans'
 import { Typo12DarkBlueGreyHKGroteskSemiBold } from '../../styleGuide/Typos'
 
 import {

@@ -8,6 +8,7 @@ export const TableHeader = styled.th`
    ${tw``}
    border: 1px solid ${Colors.lightBlueGrey};
    text-align: center;
+   padding:10px;
 `
 export const ReportedOnSpan = styled.span`
    ${tw`flex justify-center`}

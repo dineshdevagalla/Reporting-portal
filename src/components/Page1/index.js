@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
 import { ObservationTableLayout } from '../../Common/components/ObservationsTableLayOut'
-import { RpTabSwitch } from '../../Rp/components/RpTabSwitch'
+import { DesktopHeader } from '../../Common/components/DesktopHeader'
+import { TableWithPagination } from '../../Common/components/TableWithPagination'
+import { DesktopLayout, DesktopInnerLayout } from './styledComponents'
+import { ObservationTextAndButton } from '../../Common/components/ObservationsTextAndButton'
 export default class Page1 extends Component {
    render() {
       return (
-         <div>
-            <ObservationTableLayout />
-            <RpTabSwitch />
-         </div>
+         <DesktopLayout>
+            <DesktopHeader />
+
+            <DesktopInnerLayout>
+               <ObservationTextAndButton />
+               <TableWithPagination />
+            </DesktopInnerLayout>
+         </DesktopLayout>
       )
    }
 }

@@ -4,21 +4,21 @@ import { observer } from 'mobx-react'
 import { withTranslation, WithTranslation } from 'react-i18next'
 import {
    TabBarView,
-   AssignedToMeText,
-   MyObservationsText
+   TotalObservationsText,
+   Categories
 } from './styledComponents'
 
-interface RpSwitchProps extends WithTranslation {}
+interface AdminSwitchProps extends WithTranslation {}
 @observer
-class RpTabswitch extends Component<RpSwitchProps> {
-   @observable stateOfTabBar = 'assignedToMe'
+class AdminTabSwitch extends Component<AdminSwitchProps> {
+   @observable stateOfTabBar = 'totalObservations'
 
    onChangeTabBarSwitch = event => {
       this.stateOfTabBar = event.target.value
       this.onChangeRoute(this.stateOfTabBar)
    }
    onChangeRoute = selectedTab => {
-      if (selectedTab === 'assignedToMe') {
+      if (selectedTab === 'totalObservations') {
       } else {
       }
    }
@@ -27,24 +27,24 @@ class RpTabswitch extends Component<RpSwitchProps> {
       const { t } = this.props
       return (
          <TabBarView>
-            <AssignedToMeText
+            <TotalObservationsText
                onClick={this.onChangeTabBarSwitch}
-               value='assignedToMe'
+               value='totalObservations'
                stateText={this.stateOfTabBar}
             >
-               Assigned To Me
-            </AssignedToMeText>
+               Total Observations
+            </TotalObservationsText>
 
-            <MyObservationsText
+            <Categories
                onClick={this.onChangeTabBarSwitch}
-               value='myObservations'
+               value='categories'
                stateText={this.stateOfTabBar}
             >
-               My Observations
-            </MyObservationsText>
+               Categories
+            </Categories>
          </TabBarView>
       )
    }
 }
 
-export default withTranslation('', {})(RpTabswitch)
+export default withTranslation('', {})(AdminTabSwitch)
