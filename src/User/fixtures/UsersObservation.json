@@ -1,120 +1,123 @@
-[
-   {
-      "observation_id": 0,
-      "title": "culturte Devation",
-      "reported_on": "2020-07-20",
-      "assigned_to": {
-         "user_id": 0,
-         "name": "dinesh",
-         "phone_no": 7382141464,
-         "profile_pic": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/6e890090-5e79-437b-942b-236b3a8ecc1a@3x.png"
-      },
-      "severity": "HIGH",
-      "status": "reported",
-      "due_date": "2020-07-20",
+{
+   "total_observations_count": 0,
+   "observation_details": [
+      {
+         "observation_id": 0,
+         "title": "culturte Devation",
+         "reported_on": "2020-07-20",
+         "assigned_to": {
+            "user_id": 0,
+            "name": "dinesh",
+            "phone_no": 7382141464,
+            "profile_pic": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/6e890090-5e79-437b-942b-236b3a8ecc1a@3x.png"
+         },
+         "severity": "HIGH",
+         "status": "reported",
+         "due_date": "2020-07-20",
 
-      "messages_count": 0,
-      "show_due_date": "yes"
-   },
-   {
-      "observation_id": 1,
-      "title": "foood wasting",
-      "reported_on": "2020-07-20",
-      "assigned_to": {
-         "user_id": 1,
-         "name": "mohan",
-         "phone_no": 7382141464,
-         "profile_pic": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/6e890090-5e79-437b-942b-236b3a8ecc1a@3x.png"
+         "messages_count": 0,
+         "show_due_date": "yes"
       },
-      "severity": "LOW",
-      "status": "Action in Progress",
-      "due_date": "2020-07-20",
-      "messages_count": 2,
-      "show_due_date": "yes"
-   },
-   {
-      "observation_id": 2,
-      "title": "culturte Devation",
-      "reported_on": "2020-07-20",
-      "assigned_to": {
-         "user_id": 2,
-         "name": "vamsi",
-         "phone_no": 7382141464,
-         "profile_pic": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/6e890090-5e79-437b-942b-236b3a8ecc1a@3x.png"
+      {
+         "observation_id": 1,
+         "title": "foood wasting",
+         "reported_on": "2020-07-20",
+         "assigned_to": {
+            "user_id": 1,
+            "name": "mohan",
+            "phone_no": 7382141464,
+            "profile_pic": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/6e890090-5e79-437b-942b-236b3a8ecc1a@3x.png"
+         },
+         "severity": "LOW",
+         "status": "Action in Progress",
+         "due_date": "2020-07-20",
+         "messages_count": 2,
+         "show_due_date": "yes"
       },
-      "severity": "WARNING",
-      "status": "reported",
-      "due_date": "2020-07-20",
+      {
+         "observation_id": 2,
+         "title": "culturte Devation",
+         "reported_on": "2020-07-20",
+         "assigned_to": {
+            "user_id": 2,
+            "name": "vamsi",
+            "phone_no": 7382141464,
+            "profile_pic": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/6e890090-5e79-437b-942b-236b3a8ecc1a@3x.png"
+         },
+         "severity": "WARNING",
+         "status": "reported",
+         "due_date": "2020-07-20",
 
-      "messages_count": 0,
-      "show_due_date": "yes"
-   },
-   {
-      "observation_id": 3,
-      "title": "culturte Devation",
-      "reported_on": "2020-07-20",
-      "assigned_to": {
-         "user_id": 3,
-         "name": "dinesh",
-         "phone_no": 7382141464,
-         "profile_pic": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/6e890090-5e79-437b-942b-236b3a8ecc1a@3x.png"
+         "messages_count": 0,
+         "show_due_date": "yes"
       },
-      "severity": "HIGH",
-      "status": "Action in Progress",
-      "due_date": "2020-07-20",
+      {
+         "observation_id": 3,
+         "title": "culturte Devation",
+         "reported_on": "2020-07-20",
+         "assigned_to": {
+            "user_id": 3,
+            "name": "dinesh",
+            "phone_no": 7382141464,
+            "profile_pic": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/6e890090-5e79-437b-942b-236b3a8ecc1a@3x.png"
+         },
+         "severity": "HIGH",
+         "status": "Action in Progress",
+         "due_date": "2020-07-20",
 
-      "messages_count": 0,
-      "show_due_date": "yes"
-   },
-   {
-      "observation_id": 4,
-      "title": "culturte Devation",
-      "reported_on": "2020-07-20",
-      "assigned_to": {
-         "user_id": 4,
-         "name": "dinesh",
-         "phone_no": 7382141464,
-         "profile_pic": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/6e890090-5e79-437b-942b-236b3a8ecc1a@3x.png"
+         "messages_count": 0,
+         "show_due_date": "yes"
       },
-      "severity": "HIGH",
-      "status": "Resloved",
-      "due_date": "2020-07-20",
+      {
+         "observation_id": 4,
+         "title": "culturte Devation",
+         "reported_on": "2020-07-20",
+         "assigned_to": {
+            "user_id": 4,
+            "name": "dinesh",
+            "phone_no": 7382141464,
+            "profile_pic": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/6e890090-5e79-437b-942b-236b3a8ecc1a@3x.png"
+         },
+         "severity": "HIGH",
+         "status": "Resloved",
+         "due_date": "2020-07-20",
 
-      "messages_count": 0,
-      "show_due_date": "yes"
-   },
-   {
-      "observation_id": 5,
-      "title": "culturte Devation",
-      "reported_on": "2020-07-20",
-      "assigned_to": {
-         "user_id": 5,
-         "name": "",
-         "phone_no": 7382141464,
-         "profile_pic": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/6e890090-5e79-437b-942b-236b3a8ecc1a@3x.png"
+         "messages_count": 0,
+         "show_due_date": "yes"
       },
-      "severity": "WARNING",
-      "status": "action in progress",
-      "due_date": "2020-07-20",
+      {
+         "observation_id": 5,
+         "title": "culturte Devation",
+         "reported_on": "2020-07-20",
+         "assigned_to": {
+            "user_id": 5,
+            "name": "",
+            "phone_no": 7382141464,
+            "profile_pic": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/6e890090-5e79-437b-942b-236b3a8ecc1a@3x.png"
+         },
+         "severity": "WARNING",
+         "status": "action in progress",
+         "due_date": "2020-07-20",
 
-      "messages_count": 0,
-      "show_due_date": "yes"
-   },
-   {
-      "observation_id": 6,
-      "title": "culturte Devation",
-      "reported_on": "2020-07-20",
-      "assigned_to": {
-         "user_id": 6,
-         "name": "dinesh",
-         "phone_no": 7382141464,
-         "profile_pic": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/6e890090-5e79-437b-942b-236b3a8ecc1a@3x.png"
+         "messages_count": 0,
+         "show_due_date": "yes"
       },
-      "severity": "HIGH",
-      "status": "ALL",
-      "due_date": "2020-07-20",
+      {
+         "observation_id": 6,
+         "title": "culturte Devation",
+         "reported_on": "2020-07-20",
+         "assigned_to": {
+            "user_id": 6,
+            "name": "dinesh",
+            "phone_no": 7382141464,
+            "profile_pic": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/6e890090-5e79-437b-942b-236b3a8ecc1a@3x.png"
+         },
+         "severity": "HIGH",
+         "status": "ALL",
+         "due_date": "2020-07-20",
 
-      "messages_count": 0,
-      "show_due_date": "yes"
-   }
-]
+         "messages_count": 0,
+         "show_due_date": "yes"
+      }
+   ]
+}

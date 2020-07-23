@@ -1,0 +1,13 @@
+.reactSelectDefaultStyles {
+   width: 70%;
+}
+.inputElementStyles {
+   height: 200px;
+   width: 85%;
+}
+.buttonStyles {
+   width: 120px;
+   height: 40px;
+   color: white;
+   margin-top: 50px;
+}

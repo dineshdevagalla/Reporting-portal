@@ -5,19 +5,20 @@ interface inputProps {
    value?: string
    onChange?: () => void
    className?: any
-   readonly?: string
+   placeholder?: string
+   disabled?: any
 }
 export default class InputElement extends Component<inputProps> {
    render() {
-      const { value, onChange, className, readonly } = this.props
+      const { value, onChange, className, disabled, placeholder } = this.props
       return (
-         <InputTextContainer>
-            <InputField
-               value={value}
-               onChange={onChange}
-               className={className}
-            ></InputField>
-         </InputTextContainer>
+         <InputField
+            value={value}
+            onChange={onChange}
+            className={className}
+            placeholder={placeholder}
+            disabled={disabled}
+         ></InputField>
       )
    }
 }

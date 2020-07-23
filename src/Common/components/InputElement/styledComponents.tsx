@@ -6,9 +6,7 @@ export const InputTextContainer = styled.div`
 `
 export const InputField = styled.input`
    ${tw``}
-   width:100px;
-   padding: 20px;
    overflow: auto;
-   border: 1px solid ${Colors.darkBlueGrey};
+   border: 1px solid ${Colors.lightBlueGrey};
    background-color: ${Colors.white};
 `

@@ -1,0 +1,108 @@
+{
+   "categories": [
+      {
+         "id": 0,
+         "name": "AssetManagement",
+         "subcategories": [
+            {
+               "id": 0,
+               "name": "Food"
+            },
+            {
+               "id": 1,
+               "name": "Accomodation"
+            },
+            {
+               "id": 2,
+               "name": "Transport"
+            },
+            {
+               "id": 3,
+               "name": "BaiscNeeds"
+            },
+            {
+               "id": 4,
+               "name": "Food"
+            }
+         ]
+      },
+      {
+         "id": 2,
+         "name": "HR",
+         "subcategories": [
+            {
+               "id": 0,
+               "name": "Happy Team"
+            },
+            {
+               "id": 1,
+               "name": "Salary releated"
+            },
+            {
+               "id": 2,
+               "name": "Leaves"
+            },
+            {
+               "id": 3,
+               "name": "Recuritments"
+            },
+            {
+               "id": 4,
+               "name": " Some x"
+            }
+         ]
+      },
+      {
+         "id": 3,
+         "name": "Finance",
+         "subcategories": [
+            {
+               "id": 0,
+               "name": "Budget Planning Team"
+            },
+            {
+               "id": 1,
+               "name": "Salries Hike"
+            },
+            {
+               "id": 2,
+               "name": "Inventory Control"
+            },
+            {
+               "id": 3,
+               "name": " Some X"
+            },
+            {
+               "id": 4,
+               "name": "some Y"
+            }
+         ]
+      },
+      {
+         "id": 4,
+         "name": "Resources",
+         "subcategories": [
+            {
+               "id": 0,
+               "name": "Some X"
+            },
+            {
+               "id": 1,
+               "name": "Some Y"
+            },
+            {
+               "id": 2,
+               "name": " Some Z"
+            },
+            {
+               "id": 3,
+               "name": "Some A"
+            },
+            {
+               "id": 4,
+               "name": "Some B"
+            }
+         ]
+      }
+   ]
+}
