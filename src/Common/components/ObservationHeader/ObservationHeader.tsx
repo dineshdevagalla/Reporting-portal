@@ -21,24 +21,17 @@ import {
    ReportedOnSpan,
    DueDateSpan
 } from './styleComponets'
-
+interface SortFieldFunction {
+   onClickSortField?: () => void
+}
 @observer
-class ObservationHeader extends Component {
+class ObservationHeader extends Component<SortFieldFunction> {
    @observable changestateFromASCtoDSCForReportedOn = false
    @observable changestateFromASCtoDSCForDuedate = false
    @observable observationHeaderList: Array<string> = []
 
-   onClickReportedOn = () => {
-      this.changestateFromASCtoDSCForReportedOn = !this
-         .changestateFromASCtoDSCForReportedOn
-      if (this.changestateFromASCtoDSCForReportedOn) {
-      }
-   }
-   onClickDueDate = () => {
-      this.changestateFromASCtoDSCForDuedate = !this
-         .changestateFromASCtoDSCForDuedate
-      if (this.changestateFromASCtoDSCForDuedate) {
-      }
+   onClickSortField = () => {
+      const { onClickSortField } = this.props
    }
    @action.bound
    ObservationHeader() {
@@ -48,7 +41,8 @@ class ObservationHeader extends Component {
                <TableHeader>
                   <ReportedOnSpan
                      className='flex'
-                     onClick={this.onClickReportedOn}
+                     id='ReportedOn'
+                     onClick={this.onClickSortField}
                   >
                      {eachHeader}
                      {this.changestateFromASCtoDSCForReportedOn ? (
@@ -62,7 +56,7 @@ class ObservationHeader extends Component {
          } else if (eachHeader == 'Due-Date') {
             return (
                <TableHeader>
-                  <DueDateSpan onClick={this.onClickDueDate}>
+                  <DueDateSpan id='DueDate' onClick={this.onClickSortField}>
                      {eachHeader}
                      {this.changestateFromASCtoDSCForReportedOn ? (
                         <IoMdArrowDropdown />

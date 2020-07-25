@@ -3,7 +3,11 @@ import { Typo32BrightBlueHKGroteskMedium } from '../../styleGuide/Typos'
 import { TextAndButtonContainer } from './styledComponents'
 import './index.css'
 import { Button } from '../Button'
-class ObservationsTextAndButton extends Component {
+
+export interface AddnewObservationProps {
+   onClickAddNewObservation?: () => void
+}
+class ObservationsTextAndButton extends Component<AddnewObservationProps> {
    onClickAddNewObservation = () => {}
    render() {
       return (

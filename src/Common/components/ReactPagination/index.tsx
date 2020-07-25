@@ -2,16 +2,18 @@ import React, { Component } from 'react'
 
 import ReactPaginate from 'react-paginate'
 import './index.css'
-export default class ReactPagination extends Component {
-   // it get props from
+import { observer } from 'mobx-react'
+interface onPageChangeProp {
+   onCurrentPageChanges?: () => void
+}
+@observer
+class ReactPagination extends Component<onPageChangeProp> {
    pageCount = 10
    currentPage = 1
    observationsPerPage = 10
-   //TOTAL page couunt== Math.ceil(this.totalNumberOfProducts / this.productsPerPage)
 
    updateCurrentPage = currentPage => {
-      //TODO:here i nned to send offset value to pagination store
-      // i need to calculate total page count
+      const { onCurrentPageChanges } = this.props
    }
    render() {
       const { pageCount, currentPage, updateCurrentPage } = this
@@ -40,3 +42,4 @@ export default class ReactPagination extends Component {
       )
    }
 }
+export default ReactPagination

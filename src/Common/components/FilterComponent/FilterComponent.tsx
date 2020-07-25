@@ -15,15 +15,24 @@ import {
    DropdownItem,
    FilterText
 } from './styledComponents'
-
+export interface filterFunctionProps {
+   onClickSelectFilter?: () => void
+}
 import FilterIcon from '../../Icons/FilterIcon'
-class FilterComponent extends Component {
-   onClickDropdownItem = () => {}
+class FilterComponent extends Component<filterFunctionProps> {
+   onClickDropdownItem = event => {
+      const { onClickSelectFilter } = this.props
+   }
 
    ListOfItems = () => {
       return FilterConstants.map(eachItem => {
          return (
-            <DropdownItem onClick={this.onClickDropdownItem} value={eachItem}>
+            <DropdownItem
+               id={eachItem}
+               key={eachItem}
+               onClick={this.onClickDropdownItem}
+               value={eachItem}
+            >
                <Typo14SteelHKGroteskRegular>
                   {eachItem}
                </Typo14SteelHKGroteskRegular>

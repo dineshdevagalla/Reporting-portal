@@ -13,4 +13,8 @@ export interface CategoriesResponseType {
    categories: Array<EachCategoryType>
 }
 
-export interface RequestObjectOfFilterAndSorting
+export interface RequestObjectOfFilterAndSortingType {
+   sort_type: string
+   filter_type: string
+   sort_field: string
+}

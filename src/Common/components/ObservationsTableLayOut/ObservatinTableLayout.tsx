@@ -1,22 +1,34 @@
 import React, { Component } from 'react'
-import observationsData from '../../../User/fixtures/UsersObservation.json'
 
 import { ObservationHeader } from '../ObservationHeader'
 import { EachObservationRow } from '../EachObservationRow'
-
+import { TableRowsWithLoadingWrapper } from '../TableRowsWithLoadingWrapper'
+import { observer } from 'mobx-react'
 import './index.css'
-
-class ObservatinTableLayout extends Component {
-   renderingEachObservationCell = () => {
-      return observationsData.map(eachObservationObject => (
-         <EachObservationRow eachObservation={eachObservationObject} />
-      ))
-   }
+import { CommonObservationProps } from '../CommonObservationsLayout/CommonObservationsLayout'
+@observer
+class ObservatinTableLayout extends Component<CommonObservationProps> {
    render() {
+      const {
+         observationsListAPIError,
+         onClickSortField,
+         observationsListAPIStatus,
+         listOfObservations,
+
+         onClickEachObservation,
+         onClickRetry
+      } = this.props
       return (
          <table className='tablecss'>
-            <ObservationHeader />
-            {this.renderingEachObservationCell()}
+            <ObservationHeader onClickSortField={onClickSortField} />
+            <TableRowsWithLoadingWrapper
+               onClickSortField={onClickSortField}
+               observationsListAPIError={observationsListAPIError}
+               observationsListAPIStatus={observationsListAPIStatus}
+               listOfObservations={listOfObservations}
+               onClickEachObservation={onClickEachObservation}
+               onClickRetry={onClickRetry}
+            />
          </table>
       )
    }

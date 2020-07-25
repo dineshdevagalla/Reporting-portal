@@ -7,7 +7,6 @@ export interface EachRpObservationType {
    status: string
    due_date: string
    message_count: number
-   show_due_date: boolean //rp ke e key avasram ledhu..
 }
 
 export interface UserType {

@@ -5,6 +5,7 @@
          "observation_id": 0,
          "title": "culturte Devation",
          "reported_on": "2020-07-20",
+         "assigned_status": false,
          "assigned_to": {
             "user_id": 0,
             "name": "dinesh",
@@ -16,12 +17,14 @@
          "due_date": "2020-07-20",
 
          "messages_count": 0,
-         "show_due_date": "yes"
+         "show_due_date": true
       },
+
       {
          "observation_id": 1,
          "title": "foood wasting",
          "reported_on": "2020-07-20",
+         "assigned_status": false,
          "assigned_to": {
             "user_id": 1,
             "name": "mohan",
@@ -32,12 +35,14 @@
          "status": "Action in Progress",
          "due_date": "2020-07-20",
          "messages_count": 2,
-         "show_due_date": "yes"
+         "show_due_date": true
       },
+
       {
          "observation_id": 2,
          "title": "culturte Devation",
          "reported_on": "2020-07-20",
+         "assigned_status": false,
          "assigned_to": {
             "user_id": 2,
             "name": "vamsi",
@@ -49,12 +54,14 @@
          "due_date": "2020-07-20",
 
          "messages_count": 0,
-         "show_due_date": "yes"
+         "show_due_date": true
       },
+
       {
          "observation_id": 3,
          "title": "culturte Devation",
          "reported_on": "2020-07-20",
+         "assigned_status": false,
          "assigned_to": {
             "user_id": 3,
             "name": "dinesh",
@@ -66,12 +73,14 @@
          "due_date": "2020-07-20",
 
          "messages_count": 0,
-         "show_due_date": "yes"
+         "show_due_date": true
       },
+
       {
          "observation_id": 4,
          "title": "culturte Devation",
          "reported_on": "2020-07-20",
+         "assigned_status": false,
          "assigned_to": {
             "user_id": 4,
             "name": "dinesh",
@@ -83,12 +92,14 @@
          "due_date": "2020-07-20",
 
          "messages_count": 0,
-         "show_due_date": "yes"
+         "show_due_date": true
       },
+
       {
          "observation_id": 5,
          "title": "culturte Devation",
          "reported_on": "2020-07-20",
+         "assigned_status": false,
          "assigned_to": {
             "user_id": 5,
             "name": "",
@@ -100,12 +111,14 @@
          "due_date": "2020-07-20",
 
          "messages_count": 0,
-         "show_due_date": "yes"
+         "show_due_date": true
       },
+
       {
          "observation_id": 6,
          "title": "culturte Devation",
          "reported_on": "2020-07-20",
+         "assigned_status": false,
          "assigned_to": {
             "user_id": 6,
             "name": "dinesh",
@@ -117,7 +130,7 @@
          "due_date": "2020-07-20",
 
          "messages_count": 0,
-         "show_due_date": "yes"
+         "show_due_date": true
       }
    ]
 }

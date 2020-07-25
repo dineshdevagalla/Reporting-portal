@@ -16,6 +16,7 @@ import {
 
 interface ObservationType {
    eachObservation: any
+   onClickEachObservation?: () => void
 }
 class EachObservationRow extends Component<ObservationType> {
    reportedOnorAssignedToCell = (observationObject, key) => {
@@ -42,8 +43,8 @@ class EachObservationRow extends Component<ObservationType> {
    eachRowDataObject = () => {
       const { eachObservation } = this.props
       return Object.keys(eachObservation).map(key => {
-         if (key === 'assigned_to' || key == 'reported_by') {
-            if (key == 'assigned_to') {
+         if (key === 'assignedTo' || key == 'reportedBy') {
+            if (key == 'assignedTo') {
                return this.reportedOnorAssignedToCell(eachObservation, key)
             } else {
                return this.reportedOnorAssignedToCell(eachObservation, key)
@@ -58,7 +59,7 @@ class EachObservationRow extends Component<ObservationType> {
                   />
                </TableCell>
             )
-         } else if (key !== 'observation_id' && key !== 'show_due_date') {
+         } else if (key !== 'observationId' && key !== 'showDueDate') {
             return (
                <TableCell>
                   <Typo12SteelHKGroteskRegular>
@@ -70,11 +71,14 @@ class EachObservationRow extends Component<ObservationType> {
       })
    }
 
-   onRowClick = () => {}
+   onRowClick = () => {
+      const { onClickEachObservation } = this.props
+   }
 
    render() {
+      const { eachObservation } = this.props
       return (
-         <TableRow onClick={this.onRowClick}>
+         <TableRow id={eachObservation.observationId} onClick={this.onRowClick}>
             {this.eachRowDataObject()}
          </TableRow>
       )

@@ -9,19 +9,39 @@ import {
    FilterContainer
 } from './styledComponents'
 import { FilterComponent } from '../FilterComponent'
-
-export default class TableWithPagination extends Component {
+import { CommonObservationProps } from '../CommonObservationsLayout/CommonObservationsLayout'
+import { observer } from 'mobx-react'
+@observer
+class TableWithPagination extends Component<CommonObservationProps> {
    render() {
+      const {
+         observationsListAPIError,
+         onClickSelectFilter,
+         onClickSortField,
+         observationsListAPIStatus,
+         listOfObservations,
+         onCurrentPageChanges,
+         onClickEachObservation,
+         onClickRetry
+      } = this.props
       return (
          <TableWithPaginationContainer>
             <FilterContainer>
-               <FilterComponent />
+               <FilterComponent onClickSelectFilter={onClickSelectFilter} />
             </FilterContainer>
-            <ObservationTableLayout />
+            <ObservationTableLayout
+               onClickRetry={onClickRetry}
+               onClickEachObservation={onClickEachObservation}
+               listOfObservations={listOfObservations}
+               observationsListAPIStatus={observationsListAPIStatus}
+               observationsListAPIError={observationsListAPIError}
+               onClickSortField={onClickSortField}
+            />
             <PaginationBar>
-               <ReactPagination />
+               <ReactPagination onCurrentPageChanges={onCurrentPageChanges} />
             </PaginationBar>
          </TableWithPaginationContainer>
       )
    }
 }
+export default TableWithPagination
