@@ -22,12 +22,15 @@ class UserObservationModel {
       this.title = object.title
       this.reportedOn = object.reported_on
       this.assignedStatus = object.assigned_status
-      this.assignedTo = object.assigned_to
+      this.assignedTo =
+         Object.keys(object.assigned_to).length === 0
+            ? undefined
+            : object.assigned_to
       this.severity = object.severity
       this.status = object.status
-      this.dueDate = object.due_date
-      this.messagesCount = object.message_count
       this.showDueDate = object.show_due_date
+      this.dueDate = this.showDueDate ? object.due_date : undefined
+      this.messagesCount = object.message_count
    }
 
    @action.bound

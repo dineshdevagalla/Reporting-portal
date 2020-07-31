@@ -11,7 +11,8 @@ import {
    TableRow,
    TableCell,
    PersonDetailsCell,
-   NameAndPhoneNumberWrapper
+   NameAndPhoneNumberWrapper,
+   PrivacyTex
 } from './styledComponents'
 
 interface ObservationType {
@@ -22,28 +23,49 @@ class EachObservationRow extends Component<ObservationType> {
    reportedOnorAssignedToCell = (observationObject, key) => {
       return (
          <TableCell>
-            <PersonDetailsCell>
-               <ImageField
-                  imageUrl={observationObject[key].profile_pic}
-                  width='32px'
-                  height='32px'
-               />
-               <NameAndPhoneNumberWrapper>
-                  <Typo14SteelHKGroteskRegular>
-                     {observationObject[key].name}
-                  </Typo14SteelHKGroteskRegular>
-                  <Typo12SteelHKGroteskRegular>
-                     {observationObject[key].phone_no}
-                  </Typo12SteelHKGroteskRegular>
-               </NameAndPhoneNumberWrapper>
-            </PersonDetailsCell>
+            {observationObject[key] !== undefined ? (
+               <PersonDetailsCell>
+                  <ImageField
+                     imageUrl={observationObject[key].profile_pic}
+                     width='32px'
+                     height='32px'
+                  />
+                  <NameAndPhoneNumberWrapper>
+                     <Typo14SteelHKGroteskRegular>
+                        {observationObject[key].name}
+                     </Typo14SteelHKGroteskRegular>
+                     <Typo12SteelHKGroteskRegular>
+                        {observationObject[key].phone_no}
+                     </Typo12SteelHKGroteskRegular>
+                  </NameAndPhoneNumberWrapper>
+               </PersonDetailsCell>
+            ) : (
+               <PrivacyTex>Rp not assignedTo</PrivacyTex>
+            )}
          </TableCell>
       )
    }
    eachRowDataObject = () => {
       const { eachObservation } = this.props
+      console.log(eachObservation)
       return Object.keys(eachObservation).map(key => {
-         if (key === 'assignedTo' || key == 'reportedBy') {
+         if (key === 'title') {
+            return (
+               <TableCell>
+                  <Typo12SteelHKGroteskRegular>
+                     {eachObservation[key]}
+                  </Typo12SteelHKGroteskRegular>
+               </TableCell>
+            )
+         } else if (key === 'reportedOn') {
+            return (
+               <TableCell>
+                  <Typo12SteelHKGroteskRegular>
+                     {eachObservation[key]}
+                  </Typo12SteelHKGroteskRegular>
+               </TableCell>
+            )
+         } else if (key === 'assignedTo' || key == 'reportedBy') {
             if (key == 'assignedTo') {
                return this.reportedOnorAssignedToCell(eachObservation, key)
             } else {
@@ -59,7 +81,21 @@ class EachObservationRow extends Component<ObservationType> {
                   />
                </TableCell>
             )
-         } else if (key !== 'observationId' && key !== 'showDueDate') {
+         } else if (key === 'dueDate') {
+            return (
+               <TableCell>
+                  {eachObservation[key] !== undefined ? (
+                     <Typo12SteelHKGroteskRegular>
+                        {eachObservation[key]}
+                     </Typo12SteelHKGroteskRegular>
+                  ) : (
+                     <Typo14SteelHKGroteskRegular>
+                        Due Date is in Privacy
+                     </Typo14SteelHKGroteskRegular>
+                  )}
+               </TableCell>
+            )
+         } else if (key === 'messagesCount') {
             return (
                <TableCell>
                   <Typo12SteelHKGroteskRegular>

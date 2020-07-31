@@ -77,13 +77,15 @@ class PaginationStore {
    @action.bound
    setProductListAPIStatus(APIStatus) {
       this.getObservationListAPIStatus = APIStatus
+      console.log(this.getObservationListAPIStatus)
    }
 
    @action.bound
    setObservationsListAPIResponse(response) {
+      console.log(response, 'dinesh devagalla')
       const { offSet: key, entityModel } = this
-      const { total_observations_count, observation_list } = response
-      const observations = observation_list.map(
+      const { total_observations_count, observation_details } = response
+      const observations = observation_details.map(
          eachObservation => new entityModel(eachObservation)
       )
       this.ObservationsList.set(key, observations)
@@ -92,6 +94,7 @@ class PaginationStore {
    @action.bound
    setObservationsListAPIError(error) {
       this.getObservationListAPIError = error
+      console.log(this.getObservationListAPIError, 'dinesh')
    }
 
    @computed

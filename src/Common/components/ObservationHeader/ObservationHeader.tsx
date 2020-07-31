@@ -35,6 +35,7 @@ class ObservationHeader extends Component<SortFieldFunction> {
    }
    @action.bound
    ObservationHeader() {
+      console.log(this.observationHeaderList, 'chaaaa')
       return this.observationHeaderList.map(eachHeader => {
          if (eachHeader == 'Reported On') {
             return (
@@ -79,6 +80,7 @@ class ObservationHeader extends Component<SortFieldFunction> {
    }
 
    renderingObservationHeader = () => {
+      console.log(this.observationHeaderList, 'list og header')
       if (roleType.user === 'USER') {
          this.observationHeaderList = userObservationTableHeaderConstants
          return this.ObservationHeader()
@@ -91,6 +93,7 @@ class ObservationHeader extends Component<SortFieldFunction> {
       // }
    }
    render() {
+      const { observationHeaderList } = this
       return <TableRow>{this.renderingObservationHeader()}</TableRow>
    }
 }
