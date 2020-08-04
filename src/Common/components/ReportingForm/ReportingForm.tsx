@@ -20,9 +20,50 @@ import {
    Typo12DarkBlueGreyHKGroteskSemiBold
 } from '../../styleGuide/Typos'
 import { Button } from '.././Button'
-class ReportingForm extends Component {
+import { observer } from 'mobx-react'
+import { observable, computed } from 'mobx'
+
+export interface ReportingFormProps {
+   onClickSubmit?: any
+   onChangeDescription?: (event: any) => void
+   onChangeSubCategory?: (event: any) => void
+   onChangeTitle?: (event: any) => void
+   onChangeCatgory?: (event: any) => void
+   onChangeSevrity?: (event: any) => void
+
+   selectedCategory?: any
+   categoriesList?: any
+}
+@observer
+class ReportingForm extends Component<ReportingFormProps> {
+   @observable listOfSubCategories = []
+
+   @computed get listOfCategories() {
+      const { categoriesList } = this.props
+      let obj = {}
+      return categoriesList.map(
+         eachCategory =>
+            (obj = {
+               name: eachCategory.categoryName,
+               label: eachCategory.categoryName,
+               id: eachCategory.categoryId
+            })
+      )
+   }
    onClickSubmitButton = () => {}
    render() {
+      const { listOfCategories, listOfSubCategories } = this
+
+      const {
+         onChangeTitle,
+         onChangeCatgory,
+         onChangeSevrity,
+         onChangeSubCategory,
+         onChangeDescription,
+
+         onClickSubmit
+      } = this.props
+      //console.log(this.listOfCategories, 'hii dinesh how r u')
       return (
          <ReportingFormContainer>
             <BackToObservationText>
@@ -37,7 +78,7 @@ class ReportingForm extends Component {
                <Typo12DarkBlueGreyHKGroteskSemiBold>
                   Title Of the Observation
                </Typo12DarkBlueGreyHKGroteskSemiBold>
-               <InputElement />
+               <InputElement onChange={onChangeTitle} />
             </TitleOfTheObservationText>
 
             <SelectCategoriesAndSubCategoriesConatiner>
@@ -48,6 +89,8 @@ class ReportingForm extends Component {
                   <ReactSelect
                      placeholder={'select categorie'}
                      className={'reactSelectDefaultStyles'}
+                     onChange={onChangeCatgory}
+                     options={listOfCategories}
                   />
                </SelecteCategoriesText>
 
@@ -58,6 +101,8 @@ class ReportingForm extends Component {
                   <ReactSelect
                      className={'reactSelectDefaultStyles'}
                      placeholder={'sub- categorie'}
+                     onChange={onChangeSubCategory}
+                     options={listOfSubCategories}
                   />
                </SelectSubCategoriesText>
             </SelectCategoriesAndSubCategoriesConatiner>
@@ -68,13 +113,17 @@ class ReportingForm extends Component {
                <ReactSelect
                   className={'reactSelectDefaultStyles'}
                   placeholder={'select severity'}
+                  onChange={onChangeSevrity}
                />
             </SeverityText>
             <DescriptionText>
                <Typo12DarkBlueGreyHKGroteskSemiBold>
                   Description
                </Typo12DarkBlueGreyHKGroteskSemiBold>
-               <InputElement className='inputElementStyles' />
+               <InputElement
+                  onChange={onChangeDescription}
+                  className='inputElementStyles'
+               />
             </DescriptionText>
             <AttachementsText>
                <Typo12DarkBlueGreyHKGroteskSemiBold>
@@ -83,7 +132,7 @@ class ReportingForm extends Component {
             </AttachementsText>
             <SubmitButton>
                <Button
-                  onClickButton={this.onClickSubmitButton}
+                  onClickButton={onClickSubmit}
                   className={'buttonStyles'}
                   text='Submit'
                   type={Button.defaultTypes.type.filled}

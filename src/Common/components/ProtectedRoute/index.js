@@ -6,15 +6,16 @@ import { observer } from 'mobx-react'
 
 class ProtectedRoute extends React.Component {
    render() {
-      const { path, component } = this.props
-      console.log('producted Route some x', path)
-      if (getAccessToken()) {
-         return <Route exact path={path} component={component} />
-      } else {
-         return <Route exact path={path} component={component} />
-         //return <Redirect to={{pathname:signInPath}}/>
-      }
+      const { path, component: Component } = this.props
+      console.log(path, Component, 'protectedRoute')
+      return <Route exact path={path} component={Component} />
    }
 }
 
-export { ProtectedRoute }
+export default ProtectedRoute
+// if (getAccessToken()) {
+//    return <Route exact path={path} component={Component} />
+// } else {
+//    return <Route exact path={path} component={Component} />
+//    //return <Redirect to={{pathname:signInPath}}/>
+// }

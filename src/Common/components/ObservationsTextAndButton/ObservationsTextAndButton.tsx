@@ -5,18 +5,18 @@ import './index.css'
 import { Button } from '../Button'
 
 export interface AddnewObservationProps {
-   onClickAddNewObservation?: () => void
+   onClickAddNewObservation?: any
 }
 class ObservationsTextAndButton extends Component<AddnewObservationProps> {
-   onClickAddNewObservation = () => {}
    render() {
+      const { onClickAddNewObservation } = this.props
       return (
          <TextAndButtonContainer>
             <Typo32BrightBlueHKGroteskMedium>
                List Of Observations
             </Typo32BrightBlueHKGroteskMedium>
             <Button
-               onClickButton={this.onClickAddNewObservation}
+               onClickButton={onClickAddNewObservation}
                className={'buttonStyles'}
                text='+ Add New'
                type={Button.defaultTypes.type.filled}

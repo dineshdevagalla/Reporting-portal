@@ -1,27 +1,86 @@
 import React, { Component } from 'react'
 import { ReportingDesktopLayout } from './styledComponents'
-import {inject,observer} from 'mobx-react'
+import { inject, observer } from 'mobx-react'
 import ReportingForm from '../../../Common/components/ReportingForm'
-import {HocProps} from '../../../Common/hoc/WithCommonHeader/WithCommonHeader'
+import { HocProps } from '../../../Common/hoc/WithCommonHeader/WithCommonHeader'
 import WithCommonHeader from '../../../Common/hoc/WithCommonHeader'
-
-
-interface CreateObservationRouteProps extends  HocProps{
-
-
+import LoadingWrapperWithFailure from '../../../Common/components/LoadingWrapperWithFailure/LoadingWrapperWithFailure'
+import CommonStore from '../../../Common/stores/CommonStore'
+import { API_SUCCESS } from '@ib/api-constants'
+import { observable, action, computed } from 'mobx'
+import { withRouter } from 'react-router-dom'
+interface CreateObservationRouteProps extends HocProps {}
+interface InjectedProps extends CreateObservationRouteProps {
+   commonStore: CommonStore
 }
+inject('commonStore')
+@observer
+class UserCreateObservationRoute extends Component<
+   CreateObservationRouteProps
+> {
+   @observable title
+   @observable categoryId
+   @observable selectedCategory
+   @observable description
+   @observable severity
 
+   @observable SelectedCategory = ''
 
-class UserCreateObservationRoute extends Component<CreateObservationRouteProps>{
+   constructor(props) {
+      super(props)
+   }
+   onChangeTitle = event => {
+      this.title = event.target.value
+   }
 
+   onChangeCatgory = event => {
+      this.categoryId = event.id
+   }
+
+   onChangeSubCategory = event => {}
+
+   onChangeSevrity = event => {
+      this.severity = event
+   }
+
+   onChangeDescription = event => {
+      this.description = event
+   }
+
+   getInjectedProps = (): InjectedProps => this.props as InjectedProps
+
+   getCommonStore = () => {
+      return this.getInjectedProps().commonStore
+   }
+
+   onClickSubmit = () => {}
 
    render() {
+      const {
+         onChangeTitle,
+         onChangeCatgory,
+         onChangeSevrity,
+         onChangeSubCategory,
+         onChangeDescription,
+         onClickSubmit
+      } = this
+
+      const { categoriesList } = this.getCommonStore()
       return (
          <ReportingDesktopLayout>
-            <ReportingForm />
+            <ReportingForm
+               onClickSubmit={onClickSubmit}
+               onChangeDescription={onChangeDescription}
+               onChangeSubCategory={onChangeSubCategory}
+               onChangeTitle={onChangeTitle}
+               onChangeCatgory={onChangeCatgory}
+               onChangeSevrity={onChangeSevrity}
+               selectedCategory={this.selectedCategory}
+               categoriesList={categoriesList}
+            />
          </ReportingDesktopLayout>
       )
    }
 }
 
-export default UserCreateObservationRoute
+export default WithCommonHeader(UserCreateObservationRoute)

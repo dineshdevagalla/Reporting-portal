@@ -1,1 +1,3 @@
-export const foo = 'foo'
+import UserCreateObservationRoute from './UserCreateObservationRoute'
+
+export default UserCreateObservationRoute

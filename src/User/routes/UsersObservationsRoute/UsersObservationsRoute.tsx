@@ -6,7 +6,7 @@ import { API_SUCCESS } from '@ib/api-constants'
 import { observable } from 'mobx'
 import UserStore from '../../stores/UserStore'
 import { HocProps } from '../../../Common/hoc/WithCommonHeader/WithCommonHeader'
-
+import { withRouter } from 'react-router-dom'
 interface UserRouteProps extends HocProps {}
 interface InjectedProps extends UserRouteProps {
    userStore: UserStore
@@ -33,6 +33,7 @@ class UsersObservationsRoute extends Component<UserRouteProps> {
          this.getUserStore().userPaginationStore.getObservationsList()
       }
    }
+
    onClickRetry = () => {
       this.getObservations()
    }
@@ -64,4 +65,4 @@ class UsersObservationsRoute extends Component<UserRouteProps> {
    }
 }
 
-export default WithCommonHeader(UsersObservationsRoute)
+export default withRouter(WithCommonHeader(UsersObservationsRoute))

@@ -7,7 +7,7 @@ class CategoriesModel {
    constructor(object) {
       this.categoryName = object.name
       this.categoryId = object.id
-      this.subCategories = object.subCategories.map(
+      this.subCategories = object.subcategories.map(
          eachSubCategories => new SubCategories(eachSubCategories)
       )
    }

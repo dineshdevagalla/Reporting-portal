@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Select from 'react-select'
 import './index.css'
+import { observer } from 'mobx-react'
 interface SelectProps {
    options?: any
    selectedOption?: any
@@ -9,9 +10,11 @@ interface SelectProps {
    className?: any
    isDisabled?: any
    placeholder?: any
+   onChange?: any
 }
+
+@observer
 class ReactSelect extends Component<SelectProps> {
-   handleChange = () => {}
    render() {
       const {
          options,
@@ -20,12 +23,13 @@ class ReactSelect extends Component<SelectProps> {
          defaultValue,
          className,
          isDisabled,
-         placeholder
+         placeholder,
+         onChange
       } = this.props
       return (
          <Select
             value={selectedOption}
-            onChange={this.handleChange}
+            onChange={onChange}
             options={options}
             isMulti={isMulti}
             defaultValue={defaultValue}

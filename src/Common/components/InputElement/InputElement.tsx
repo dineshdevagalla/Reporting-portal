@@ -3,7 +3,7 @@ import { InputTextContainer, InputField } from './styledComponents'
 
 interface inputProps {
    value?: string
-   onChange?: () => void
+   onChange?: (event: any) => void
    className?: any
    placeholder?: string
    disabled?: any

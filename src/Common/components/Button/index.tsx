@@ -12,7 +12,7 @@ interface ButtonProps {
    onClickButton: () => void
 }
 
-class Button extends React.Component<ButtonProps, {}, any> {
+class Button extends React.Component<ButtonProps> {
    static defaultProps = {
       type: buttontypes.filled,
       varient: varientTypes.oval
