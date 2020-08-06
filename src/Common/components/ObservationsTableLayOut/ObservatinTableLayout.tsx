@@ -5,6 +5,7 @@ import { EachObservationRow } from '../EachObservationRow'
 import { TableRowsWithLoadingWrapper } from '../TableRowsWithLoadingWrapper'
 import { observer } from 'mobx-react'
 import './index.css'
+import LoadingWrapperWithFailure from '../LoadingWrapperWithFailure/LoadingWrapperWithFailure'
 import { CommonObservationProps } from '../CommonObservationsLayout/CommonObservationsLayout'
 @observer
 class ObservatinTableLayout extends Component<CommonObservationProps> {
@@ -21,6 +22,7 @@ class ObservatinTableLayout extends Component<CommonObservationProps> {
       return (
          <table className='tablecss'>
             <ObservationHeader onClickSortField={onClickSortField} />
+
             <TableRowsWithLoadingWrapper
                onClickSortField={onClickSortField}
                observationsListAPIError={observationsListAPIError}

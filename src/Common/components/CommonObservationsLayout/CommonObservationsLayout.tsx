@@ -10,7 +10,7 @@ export interface CommonObservationProps {
    onClickSelectFilter?: () => void
    onClickSortField?: () => void
    onCurrentPageChanges?: () => void
-   onClickEachObservation?: () => void
+   onClickEachObservation?: (event: any) => void
    listOfObservations: any
    observationsListAPIStatus?: any
    observationsListAPIError?: any

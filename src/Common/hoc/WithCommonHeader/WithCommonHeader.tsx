@@ -8,14 +8,12 @@ import { observable, computed } from 'mobx'
 import { goToAddNewObservation } from '../../../Common/utils/navigationUtils'
 import { USER_CREATE_OBSERVATION } from '../../../User/constants/NavigationConstants/navigationConstants'
 import { inject } from 'mobx-react'
+import History from 'history'
 export interface HocProps {
-   onClickSortingAction?: () => void
-   onClickChangePageinPagination?: () => void
-   onClickFilter?: () => void
    onClickAdminNavSwitch?: () => void
    onClickRpNavSwitch?: () => void
    onClickAddNewObservation?: () => void
-   onClickEachObservation?: () => void
+   history: History
 }
 import CommonStore from '../../../Common/stores/CommonStore'
 import { API_SUCCESS } from '@ib/api-constants'
@@ -66,15 +64,9 @@ function WithCommonHeader<T>(WrappedComponent: React.ComponentType<T>) {
                <DesktopHeader />
 
                <WrappedComponent
-                  onClickSortingAction={this.onClickSortingAction}
-                  onClickChangePageinPagination={
-                     this.onClickChangePageinPagination
-                  }
-                  onClickFilter={this.onClickFilter}
                   onClickAdminNavSwitch={this.onClickAdminNavSwitch}
                   onClickRpNavSwitch={this.onClickRpNavSwitch}
                   onClickAddNewObservation={this.onClickAddNewObservation}
-                  onClickEachObservation={this.onClickEachObservation}
                   {...props}
                />
             </DesktopLayout>

@@ -10,6 +10,7 @@ class TableRowsWithLoadingWrapper extends React.Component<
 > {
    renderSuccessUI = observer(() => {
       const { listOfObservations, onClickEachObservation } = this.props
+
       if (listOfObservations != undefined) {
          return listOfObservations.map(eachObservationObject => (
             <EachObservationRow

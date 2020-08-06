@@ -17,7 +17,7 @@ import {
 
 interface ObservationType {
    eachObservation: any
-   onClickEachObservation?: () => void
+   onClickEachObservation?: (event: any) => void
 }
 class EachObservationRow extends Component<ObservationType> {
    reportedOnorAssignedToCell = (observationObject, key) => {
@@ -47,7 +47,7 @@ class EachObservationRow extends Component<ObservationType> {
    }
    eachRowDataObject = () => {
       const { eachObservation } = this.props
-      console.log(eachObservation)
+
       return Object.keys(eachObservation).map(key => {
          if (key === 'title') {
             return (
@@ -107,8 +107,9 @@ class EachObservationRow extends Component<ObservationType> {
       })
    }
 
-   onRowClick = () => {
+   onRowClick = event => {
       const { onClickEachObservation } = this.props
+      //onClickEachObservation(event.target.id)
    }
 
    render() {

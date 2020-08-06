@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
 import tw from 'tailwind.macro'
 import { Colors } from '../../themes/Colors'
-const BackToObservationText = styled.div`
-   ${tw`flex  items-center `}
+const BackToObservationText = styled.button`
+   ${tw`flex  items-center   focus:outline-none`}
 `
 
 const ReportingFormContainer = styled.div`

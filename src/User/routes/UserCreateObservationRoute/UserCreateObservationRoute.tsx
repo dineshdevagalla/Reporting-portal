@@ -8,7 +8,8 @@ import LoadingWrapperWithFailure from '../../../Common/components/LoadingWrapper
 import CommonStore from '../../../Common/stores/CommonStore'
 import { API_SUCCESS } from '@ib/api-constants'
 import { observable, action, computed } from 'mobx'
-import { withRouter } from 'react-router-dom'
+import { withRouter, RouteComponentProps } from 'react-router-dom'
+import { goToBackToObservations } from '../../../Common/utils/navigationUtils'
 interface CreateObservationRouteProps extends HocProps {}
 interface InjectedProps extends CreateObservationRouteProps {
    commonStore: CommonStore
@@ -18,11 +19,15 @@ inject('commonStore')
 class UserCreateObservationRoute extends Component<
    CreateObservationRouteProps
 > {
+   @observable createRef = React.createRef()
    @observable title
    @observable categoryId
+   @observable selectedSubCategoryId
    @observable selectedCategory
    @observable description
    @observable severity
+   @observable listOfSubCategories = []
+   @observable clearingSubCategory = false
 
    @observable SelectedCategory = ''
 
@@ -34,17 +39,35 @@ class UserCreateObservationRoute extends Component<
    }
 
    onChangeCatgory = event => {
-      this.categoryId = event.id
-   }
+      const { categoriesList } = this.getCommonStore()
 
-   onChangeSubCategory = event => {}
+      this.categoryId = event.id
+      let x = categoriesList.find(
+         eachCategory => eachCategory.categoryId == event.id
+      )
+      this.listOfSubCategories = x.subCategories.map(eachSubCategory => ({
+         name: eachSubCategory.subCategoryName,
+         label: eachSubCategory.subCategoryName
+      }))
+   }
+   @action.bound
+   clearVariables() {
+      this.title = ''
+      this.categoryId = ''
+      this.selectedSubCategoryId = ''
+      this.severity = ''
+      this.description = ''
+   }
+   onChangeSubCategory = event => {
+      this.selectedSubCategoryId = event.Id
+   }
 
    onChangeSevrity = event => {
       this.severity = event
    }
 
    onChangeDescription = event => {
-      this.description = event
+      this.description = event.target.value
    }
 
    getInjectedProps = (): InjectedProps => this.props as InjectedProps
@@ -53,7 +76,27 @@ class UserCreateObservationRoute extends Component<
       return this.getInjectedProps().commonStore
    }
 
-   onClickSubmit = () => {}
+   onClickSubmit = async () => {
+      const createObservationObject = {
+         title: this.title,
+         category_id: this.categoryId,
+         sub_category_Id: this.selectedSubCategoryId,
+         severity: this.severity.toUpperCase(),
+         description: this.description
+      }
+
+      await this.getCommonStore().postObservation(createObservationObject)
+      if (
+         this.getCommonStore().getPostUserObservationAPIStatus === API_SUCCESS
+      ) {
+         this.clearVariables()
+      }
+   }
+
+   onClickBackToObservation = () => {
+      const { history } = this.props
+      goToBackToObservations(history)
+   }
 
    render() {
       const {
@@ -62,7 +105,8 @@ class UserCreateObservationRoute extends Component<
          onChangeSevrity,
          onChangeSubCategory,
          onChangeDescription,
-         onClickSubmit
+         onClickSubmit,
+         listOfSubCategories
       } = this
 
       const { categoriesList } = this.getCommonStore()
@@ -77,10 +121,13 @@ class UserCreateObservationRoute extends Component<
                onChangeSevrity={onChangeSevrity}
                selectedCategory={this.selectedCategory}
                categoriesList={categoriesList}
+               listOfSubCategories={listOfSubCategories}
+               createRef={this.createRef}
+               onClickBackToObservation={this.onClickBackToObservation}
             />
          </ReportingDesktopLayout>
       )
    }
 }
 
-export default WithCommonHeader(UserCreateObservationRoute)
+export default withRouter(WithCommonHeader(UserCreateObservationRoute))

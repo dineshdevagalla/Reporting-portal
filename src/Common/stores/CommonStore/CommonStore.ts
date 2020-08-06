@@ -5,6 +5,8 @@ import CategoriesModel from './model/CategoriesModel'
 class CommonStore {
    @observable getCategoriesAPIStatus
    @observable getCategoriesAPIError
+   @observable getPostUserObservationAPIStatus
+   @observable getPostUserObservationAPIError
    @observable categoriesList
    commonService
    constructor(commonService) {
@@ -15,6 +17,8 @@ class CommonStore {
    init() {
       this.getCategoriesAPIStatus = API_INITIAL
       this.getCategoriesAPIError = null
+      this.getPostUserObservationAPIStatus = API_INITIAL
+      this.getPostUserObservationAPIError = null
       this.categoriesList = []
    }
 
@@ -30,12 +34,9 @@ class CommonStore {
 
    @action.bound
    setCategoriesResponse(response) {
-      console.log(response, 'common store response')
       this.categoriesList = response.categories.map(
          eachCategory => new CategoriesModel(eachCategory)
       )
-
-      console.log(this.categoriesList, 'store categories')
    }
 
    @action.bound
@@ -45,6 +46,28 @@ class CommonStore {
       return bindPromiseWithOnSuccess(getCategoriesPromise)
          .to(this.setCategoriesAPIStatus, this.setCategoriesResponse)
          .catch(this.setCategoriesAPIError)
+   }
+
+   @action.bound
+   setPostUserObservationAPIStatus(status) {
+      this.getPostUserObservationAPIStatus = status
+   }
+   @action.bound
+   setPostUserObservationAPIError(error) {
+      this.getPostUserObservationAPIError = error
+   }
+   @action.bound
+   postObservation(requestObject) {
+      const getPostObservationPromise = this.commonService.PostNewObservationAPI(
+         requestObject
+      )
+      return bindPromiseWithOnSuccess(getPostObservationPromise)
+         .to(this.setPostUserObservationAPIStatus, () => {})
+         .catch(this.setPostUserObservationAPIError)
+   }
+   @action.bound
+   onClickSubmitObservation(requestObject) {
+      this.postObservation(requestObject)
    }
 }
 

@@ -22,6 +22,7 @@ import {
 import { Button } from '.././Button'
 import { observer } from 'mobx-react'
 import { observable, computed } from 'mobx'
+import { SelectSeverityConstants } from '../../constants/selectOptionsConstants'
 
 export interface ReportingFormProps {
    onClickSubmit?: any
@@ -30,14 +31,16 @@ export interface ReportingFormProps {
    onChangeTitle?: (event: any) => void
    onChangeCatgory?: (event: any) => void
    onChangeSevrity?: (event: any) => void
+   onClickBackToObservation?: () => void
 
    selectedCategory?: any
    categoriesList?: any
+   listOfSubCategories?: any
+   createRef?: any
 }
 @observer
 class ReportingForm extends Component<ReportingFormProps> {
-   @observable listOfSubCategories = []
-
+   @observable createRef = React.createRef()
    @computed get listOfCategories() {
       const { categoriesList } = this.props
       let obj = {}
@@ -50,9 +53,10 @@ class ReportingForm extends Component<ReportingFormProps> {
             })
       )
    }
+
    onClickSubmitButton = () => {}
    render() {
-      const { listOfCategories, listOfSubCategories } = this
+      const { listOfCategories } = this
 
       const {
          onChangeTitle,
@@ -60,13 +64,15 @@ class ReportingForm extends Component<ReportingFormProps> {
          onChangeSevrity,
          onChangeSubCategory,
          onChangeDescription,
+         onClickBackToObservation,
+         createRef,
 
          onClickSubmit
       } = this.props
-      //console.log(this.listOfCategories, 'hii dinesh how r u')
+
       return (
          <ReportingFormContainer>
-            <BackToObservationText>
+            <BackToObservationText onClick={onClickBackToObservation}>
                <BackTickIcon />
                <Typo14SteelHKGroteskRegular>
                   {' '}
@@ -102,7 +108,8 @@ class ReportingForm extends Component<ReportingFormProps> {
                      className={'reactSelectDefaultStyles'}
                      placeholder={'sub- categorie'}
                      onChange={onChangeSubCategory}
-                     options={listOfSubCategories}
+                     options={this.props.listOfSubCategories}
+                     reference={createRef}
                   />
                </SelectSubCategoriesText>
             </SelectCategoriesAndSubCategoriesConatiner>
@@ -114,6 +121,7 @@ class ReportingForm extends Component<ReportingFormProps> {
                   className={'reactSelectDefaultStyles'}
                   placeholder={'select severity'}
                   onChange={onChangeSevrity}
+                  options={SelectSeverityConstants}
                />
             </SeverityText>
             <DescriptionText>
