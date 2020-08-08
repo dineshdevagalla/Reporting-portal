@@ -12,6 +12,7 @@ interface SelectProps {
    placeholder?: any
    onChange?: any
    reference?: any
+   value?: any
 }
 
 @observer
@@ -26,11 +27,12 @@ class ReactSelect extends Component<SelectProps> {
          isDisabled,
          placeholder,
          onChange,
-         reference
+         reference,
+         value
       } = this.props
+
       return (
          <Select
-            value={selectedOption}
             onChange={onChange}
             options={options}
             isMulti={isMulti}
@@ -39,6 +41,7 @@ class ReactSelect extends Component<SelectProps> {
             isDisabled={isDisabled}
             placeholder={placeholder}
             ref={reference}
+            value={value}
          />
       )
    }

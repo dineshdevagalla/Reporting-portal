@@ -29,8 +29,13 @@ class UserStore {
    }
 
    @action.bound
-   onClickEachObservation(observationId) {
-      console.log(this.userPaginationStore.observations())
+   onClickEachObservation(selectedObservationId) {
+      const selectedObservation = this.userPaginationStore.observations.find(
+         eachObservation =>
+            eachObservation.observationId === selectedObservationId
+      )
+
+      selectedObservation.getObservationData(selectedObservationId)
    }
 }
 

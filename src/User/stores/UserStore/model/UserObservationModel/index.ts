@@ -16,8 +16,9 @@ class UserObservationModel {
    @observable showDueDate
    @observable getObservationDetaiAPIStatus
    @observable getObservationDetaiAPIError
+   @observable userService
 
-   constructor(object, UserService?: any) {
+   constructor(object, userService?: any) {
       this.observationId = object.observation_id
       this.title = object.title
       this.reportedOn = object.reported_on
@@ -31,6 +32,7 @@ class UserObservationModel {
       this.showDueDate = object.show_due_date
       this.dueDate = this.showDueDate ? object.due_date : undefined
       this.messagesCount = object.message_count
+      this.userService=userService
    }
 
    @action.bound
@@ -46,12 +48,16 @@ class UserObservationModel {
    @action.bound
    setObservationDetailsResponse() {}
 
-   //   @action.bound
-   //   getObservationDeta() {
-   //     return bindPromiseWithOnSuccess()
-   //       .to(this.setObservationDetailsAPIStatus, this.setObservationDetailsResponse)
-   //       .catch(this.setObservationDetaAPIError)
-   //   }
+   @action.bound
+   getObservationData(observationId) {
+       const observationDetailsPendingPromise=this.userService.
+      return bindPromiseWithOnSuccess()
+         .to(
+            this.setObservationDetailsAPIStatus,
+            this.setObservationDetailsResponse
+         )
+         .catch(this.setObservationDetaAPIError)
+   }
 }
 
 export default UserObservationModel

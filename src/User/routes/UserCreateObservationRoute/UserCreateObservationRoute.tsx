@@ -10,6 +10,8 @@ import { API_SUCCESS } from '@ib/api-constants'
 import { observable, action, computed } from 'mobx'
 import { withRouter, RouteComponentProps } from 'react-router-dom'
 import { goToBackToObservations } from '../../../Common/utils/navigationUtils'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 interface CreateObservationRouteProps extends HocProps {}
 interface InjectedProps extends CreateObservationRouteProps {
    commonStore: CommonStore
@@ -28,8 +30,8 @@ class UserCreateObservationRoute extends Component<
    @observable severity
    @observable listOfSubCategories = []
    @observable clearingSubCategory = false
-
-   @observable SelectedCategory = ''
+   @observable categoryName = ''
+   @observable subCategoryName = ''
 
    constructor(props) {
       super(props)
@@ -39,8 +41,9 @@ class UserCreateObservationRoute extends Component<
    }
 
    onChangeCatgory = event => {
+      this.subCategoryName = ''
       const { categoriesList } = this.getCommonStore()
-
+      this.categoryName = event.value
       this.categoryId = event.id
       let x = categoriesList.find(
          eachCategory => eachCategory.categoryId == event.id
@@ -57,13 +60,16 @@ class UserCreateObservationRoute extends Component<
       this.selectedSubCategoryId = ''
       this.severity = ''
       this.description = ''
+      this.categoryName = ''
+      this.subCategoryName = ''
    }
    onChangeSubCategory = event => {
       this.selectedSubCategoryId = event.Id
+      this.subCategoryName = event.value
    }
 
    onChangeSevrity = event => {
-      this.severity = event
+      this.severity = event.name
    }
 
    onChangeDescription = event => {
@@ -81,14 +87,17 @@ class UserCreateObservationRoute extends Component<
          title: this.title,
          category_id: this.categoryId,
          sub_category_Id: this.selectedSubCategoryId,
-         severity: this.severity.toUpperCase(),
+         severity: this.severity,
          description: this.description
       }
 
       await this.getCommonStore().postObservation(createObservationObject)
+
       if (
          this.getCommonStore().getPostUserObservationAPIStatus === API_SUCCESS
       ) {
+         toast.info('observation created')
+
          this.clearVariables()
       }
    }
@@ -109,7 +118,10 @@ class UserCreateObservationRoute extends Component<
          listOfSubCategories
       } = this
 
-      const { categoriesList } = this.getCommonStore()
+      const {
+         categoriesList,
+         getPostUserObservationAPIStatus
+      } = this.getCommonStore()
       return (
          <ReportingDesktopLayout>
             <ReportingForm
@@ -124,6 +136,12 @@ class UserCreateObservationRoute extends Component<
                listOfSubCategories={listOfSubCategories}
                createRef={this.createRef}
                onClickBackToObservation={this.onClickBackToObservation}
+               severity={this.severity}
+               categoryName={this.categoryName}
+               subCategoryName={this.subCategoryName}
+               title={this.title}
+               description={this.description}
+               getPostUserObservationAPIStatus={getPostUserObservationAPIStatus}
             />
          </ReportingDesktopLayout>
       )

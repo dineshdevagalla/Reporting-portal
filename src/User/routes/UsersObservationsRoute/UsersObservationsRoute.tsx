@@ -35,9 +35,11 @@ class UsersObservationsRoute extends Component<UserRouteProps> {
       }
    }
    onClickEachObservation = observationId => {
+      alert(10)
       const { history } = this.props
       goToObservationDetails(history, observationId)
       const { onClickEachObservation } = this.getUserStore()
+      onClickEachObservation(observationId)
    }
 
    onClickRetry = () => {

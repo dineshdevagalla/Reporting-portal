@@ -7,7 +7,7 @@ import { SerializedStyles } from '@emotion/core'
 interface ButtonProps {
    varient: any
    type: any
-   text: string
+   text: string | any
    className: any
    onClickButton: () => void
 }

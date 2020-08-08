@@ -14,6 +14,7 @@ interface ButtonProps {
 export const OutlineButton = styled(BaseButton)`
    background-color: white;
    color: black;
+   ${tw`flex justify-center items-center`}
 `
 
 export const OvalType = css`

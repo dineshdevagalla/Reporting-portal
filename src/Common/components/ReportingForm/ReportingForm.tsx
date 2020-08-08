@@ -23,7 +23,9 @@ import { Button } from '.././Button'
 import { observer } from 'mobx-react'
 import { observable, computed } from 'mobx'
 import { SelectSeverityConstants } from '../../constants/selectOptionsConstants'
-
+import { ToastContainer } from 'react-toastify'
+import Loader from 'react-loader-spinner'
+import { API_FETCHING } from '@ib/api-constants'
 export interface ReportingFormProps {
    onClickSubmit?: any
    onChangeDescription?: (event: any) => void
@@ -32,11 +34,16 @@ export interface ReportingFormProps {
    onChangeCatgory?: (event: any) => void
    onChangeSevrity?: (event: any) => void
    onClickBackToObservation?: () => void
-
+   getPostUserObservationAPIStatus?: number
    selectedCategory?: any
    categoriesList?: any
    listOfSubCategories?: any
    createRef?: any
+   severity?: any
+   categoryName?: any
+   subCategoryName?: any
+   title?: any
+   description?: any
 }
 @observer
 class ReportingForm extends Component<ReportingFormProps> {
@@ -65,13 +72,24 @@ class ReportingForm extends Component<ReportingFormProps> {
          onChangeSubCategory,
          onChangeDescription,
          onClickBackToObservation,
+         getPostUserObservationAPIStatus,
          createRef,
 
-         onClickSubmit
+         onClickSubmit,
+         title,
+         categoryName,
+         subCategoryName,
+         description
       } = this.props
 
       return (
          <ReportingFormContainer>
+            <ToastContainer
+               hideProgressBar={true}
+               autoClose={3000}
+               closeButton={false}
+               position='top-center'
+            />
             <BackToObservationText onClick={onClickBackToObservation}>
                <BackTickIcon />
                <Typo14SteelHKGroteskRegular>
@@ -84,7 +102,7 @@ class ReportingForm extends Component<ReportingFormProps> {
                <Typo12DarkBlueGreyHKGroteskSemiBold>
                   Title Of the Observation
                </Typo12DarkBlueGreyHKGroteskSemiBold>
-               <InputElement onChange={onChangeTitle} />
+               <InputElement value={title} onChange={onChangeTitle} />
             </TitleOfTheObservationText>
 
             <SelectCategoriesAndSubCategoriesConatiner>
@@ -97,6 +115,7 @@ class ReportingForm extends Component<ReportingFormProps> {
                      className={'reactSelectDefaultStyles'}
                      onChange={onChangeCatgory}
                      options={listOfCategories}
+                     value={categoryName}
                   />
                </SelecteCategoriesText>
 
@@ -110,6 +129,7 @@ class ReportingForm extends Component<ReportingFormProps> {
                      onChange={onChangeSubCategory}
                      options={this.props.listOfSubCategories}
                      reference={createRef}
+                     value={subCategoryName}
                   />
                </SelectSubCategoriesText>
             </SelectCategoriesAndSubCategoriesConatiner>
@@ -122,6 +142,7 @@ class ReportingForm extends Component<ReportingFormProps> {
                   placeholder={'select severity'}
                   onChange={onChangeSevrity}
                   options={SelectSeverityConstants}
+                  value={this.props.severity}
                />
             </SeverityText>
             <DescriptionText>
@@ -131,6 +152,7 @@ class ReportingForm extends Component<ReportingFormProps> {
                <InputElement
                   onChange={onChangeDescription}
                   className='inputElementStyles'
+                  value={description}
                />
             </DescriptionText>
             <AttachementsText>
@@ -142,7 +164,18 @@ class ReportingForm extends Component<ReportingFormProps> {
                <Button
                   onClickButton={onClickSubmit}
                   className={'buttonStyles'}
-                  text='Submit'
+                  text={
+                     getPostUserObservationAPIStatus === API_FETCHING ? (
+                        <Loader
+                           type='Circles'
+                           color='#00BFFF'
+                           height={35}
+                           width={35}
+                        />
+                     ) : (
+                        'Submit'
+                     )
+                  }
                   type={Button.defaultTypes.type.filled}
                   varient={Button.defaultTypes.varient.oval}
                />
